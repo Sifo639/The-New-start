@@ -1,70 +1,45 @@
-// Task 1: Student Class
-
-// Create a class called `Student`.
-
-//  Properties
-// - name
-// - age
-// - grade
-
-// Requirements
-
-// Constructors
-
-// 1. **Default Constructor**
-//    - name = "Unknown"
-//    - age = 0
-//    - grade = "Not Assigned"
-
-// 2. **Parameterized Constructor**
-//    - Receives all properties from the user.
-
-//  Methods
-
-// Create a method called:
-// dart
-// displayInfo()
-
- import 'dart:io';
+import 'dart:io';
 
 class Student {
+  String name;
+  int age;
+  String grade;
 
-final String? name;
-final int? age;
-final String? grade;
- 
- 
-const Student({
-  required this.name,
-   required this.age,
+
+  Student.displayInfo({
+    required this.name,
+    required this.age,
     required this.grade,
+  });
 
-});
-
-void displayInfo(){
-print("ur name is $name");
-print("ur age is $age");
-print("ur Grade is $grade");
+  void displayInfo() {
+    print('\nStudent Information');
+    print('Name: $name');
+    print('Age: $age');
+    print('Grade: $grade');
+  }
 }
- 
- 
- }
- void main(){
-  print("!!!Can't change ur information, be careful");
 
+void main() {
+  stdout.write('Enter student name: ');
+  String name = stdin.readLineSync()!;
 
-stdout.write("Enter ur name  ");
-String name = stdin.readLineSync()!;
+  stdout.write('Enter student age: ');
+  int? age = int.tryParse(stdin.readLineSync()!);
 
-stdout.write("Enter ur age   ");
-int age = int.parse(stdin.readLineSync()!);
+  if (age == null || age < 0) {
+    print('Invalid age! Please enter a number.');
+    return;
+  }
 
-stdout.write("Enter ur Grade");
-String grade =  stdin.readLineSync()!;
+  stdout.write('Enter student grade: ');
+  String grade = stdin.readLineSync()!;
 
+  Student student = Student.displayInfo(
+    name: name,
+    age: age,
+    grade: grade,
+  );
 
-Student student = Student(name: name, age: age, grade: grade);
-
-student.displayInfo();
-
- }
+  student.displayInfo();
+}
