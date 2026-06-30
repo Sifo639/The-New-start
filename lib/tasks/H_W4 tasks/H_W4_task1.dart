@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class Student {
-  String name;
+final  String name;
   int age;
   String grade;
 

@@ -30,9 +30,9 @@
 import 'dart:io';
 
 class Bankaccount{
- String? ownerName;
-  int?   accountNumber;
-   double? balance; 
+final String? ownerName;
+  final int?   accountNumber;
+        double? balance; 
 
 Bankaccount.personalInfo({
   required this.ownerName,
